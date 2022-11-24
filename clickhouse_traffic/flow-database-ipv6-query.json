@@ -51,7 +51,7 @@
   "panels": [
     {
       "columns": [],
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fontSize": "100%",
       "gridPos": {
         "h": 16,

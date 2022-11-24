@@ -55,7 +55,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -187,7 +187,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -319,7 +319,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
