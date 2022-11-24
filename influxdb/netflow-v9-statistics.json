@@ -1335,7 +1335,7 @@
             [
               {
                 "params": [
-                  "netflow_v9_duration_less_60_secionds"
+                  "netflow_v9_duration_less_60_seconds"
                 ],
                 "type": "field"
               },
