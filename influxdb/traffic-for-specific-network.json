@@ -46,7 +46,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_FASTNETMON}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 1,
           "legend": {
@@ -152,7 +152,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_FASTNETMON}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 2,
           "legend": {
@@ -270,7 +270,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_FASTNETMON}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 3,
           "legend": {
@@ -376,7 +376,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_FASTNETMON}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 4,
           "legend": {
@@ -496,7 +496,7 @@
       {
         "allValue": null,
         "current": {},
-        "datasource": "${DS_FASTNETMON}",
+        "datasource": "fastnetmoninfluxdbdatasource",
         "hide": 0,
         "includeAll": false,
         "label": "Network",

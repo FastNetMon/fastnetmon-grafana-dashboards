@@ -54,7 +54,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -180,7 +180,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -306,7 +306,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -432,7 +432,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -558,7 +558,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -684,7 +684,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -810,7 +810,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -936,7 +936,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_INFLUXDB}",
+      "datasource": "fastnetmoninfluxdbdatasource",
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {

@@ -64,7 +64,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -144,7 +144,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -194,7 +194,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -274,7 +274,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -324,7 +324,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -404,7 +404,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -454,7 +454,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -534,7 +534,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -584,7 +584,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -664,7 +664,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -714,7 +714,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -794,7 +794,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -844,7 +844,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -924,7 +924,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [
@@ -974,7 +974,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "fastnetmoninfluxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -1054,7 +1054,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "fastnetmoninfluxdbdatasource"
           },
           "dsType": "influxdb",
           "groupBy": [

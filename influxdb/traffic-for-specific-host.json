@@ -47,7 +47,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 1,
           "legend": {
@@ -156,7 +156,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 2,
           "legend": {
@@ -277,7 +277,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 5,
           "legend": {
@@ -386,7 +386,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 3,
           "legend": {
@@ -507,7 +507,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 4,
           "legend": {
@@ -616,7 +616,7 @@
         {
           "aliasColors": {},
           "bars": false,
-          "datasource": "${DS_INFLUXDB}",
+          "datasource": "fastnetmoninfluxdbdatasource",
           "fill": 1,
           "id": 6,
           "legend": {
