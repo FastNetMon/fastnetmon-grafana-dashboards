@@ -42,7 +42,7 @@
       }
     ]
   },
-  "description": "FastNetMon Advanced TOP 10 Hosts v2",
+  "description": "FastNetMon Advanced TOP 10 Hosts",
   "editable": true,
   "gnetId": 8574,
   "graphTooltip": 0,
@@ -633,7 +633,7 @@
     ]
   },
   "timezone": "",
-  "title": "FastNetMon Advanced TOP 10 Hosts v2",
+  "title": "FastNetMon Advanced TOP 10 Hosts",
   "uid": "3VNbfPxmzz",
   "version": 2
 }
