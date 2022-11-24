@@ -64,7 +64,7 @@
         "rgba(237, 129, 40, 0.89)",
         "#299c46"
       ],
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "decimals": null,
       "format": "none",
       "gauge": {
@@ -154,7 +154,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -259,7 +259,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -361,7 +361,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fill": 1,
       "gridPos": {
         "h": 9,
@@ -465,7 +465,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS_CLICKHOUSE}",
+      "datasource": "fastnetmonclickhousedatasourceuid",
       "fill": 1,
       "gridPos": {
         "h": 9,
