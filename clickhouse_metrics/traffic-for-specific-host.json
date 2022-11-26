@@ -214,7 +214,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Incomming traffic",
+      "title": "Incoming traffic",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -420,7 +420,7 @@
       "thresholds": [],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Incomming packets",
+      "title": "Incoming packets",
       "tooltip": {
         "shared": true,
         "sort": 0,
