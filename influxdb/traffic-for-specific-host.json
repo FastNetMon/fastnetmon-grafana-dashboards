@@ -690,7 +690,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Flows Incoming",
+          "title": "Flows Outgoing",
           "tooltip": {
             "shared": true,
             "sort": 0,
