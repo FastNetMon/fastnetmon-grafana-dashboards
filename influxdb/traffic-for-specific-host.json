@@ -438,7 +438,7 @@
                 [
                   {
                     "params": [
-                      "packets_incoming"
+                      "packets_outgoing"
                     ],
                     "type": "field"
                   },
@@ -460,7 +460,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Incoming packets",
+          "title": "Outgoing packets",
           "tooltip": {
             "shared": true,
             "sort": 0,
