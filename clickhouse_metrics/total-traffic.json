@@ -1,0 +1,1359 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_CLICKHOUSE_OFFICIAL",
+      "label": "Clickhouse official",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "grafana-clickhouse-datasource",
+      "pluginName": "ClickHouse"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.1.4"
+    },
+    {
+      "type": "datasource",
+      "id": "grafana-clickhouse-datasource",
+      "name": "ClickHouse",
+      "version": "3.3.0"
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "incoming"
+              }
+            ],
+            "groupBy": [],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Bits",
+                "field": "bits"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(bits) Bits FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'incoming' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Incoming traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "incoming"
+              }
+            ],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Packets",
+                "field": "packets"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(packets) Packets FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'incoming' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Incoming traffic, packets/s",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "outgoing"
+              }
+            ],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Bits",
+                "field": "bits"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(bits) Bits FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'outgoing' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Outgoing traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "outgoing"
+              }
+            ],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Packets",
+                "field": "packets"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(packets) Packets FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'outgoing' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Outgoing traffic, packets/s",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "Traffic where source and destination both belong to your list of networks",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "internal"
+              }
+            ],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Bits",
+                "field": "bits"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(bits) Bits FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'internal' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Internal traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "Traffic where source and destination both belong to your list of networks",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "internal"
+              }
+            ],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Packets",
+                "field": "packets"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(packets) Packets FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'internal' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Internal traffic, packets/s",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "Traffic where both source and destination are not part of our list of networks",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "other"
+              }
+            ],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Bits",
+                "field": "bits"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(bits) Bits FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'other' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Other traffic",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+      },
+      "description": "Traffic where both source and destination are not part of our list of networks",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "metricDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "metricDateTime",
+                    "name": "metricDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "direction",
+                "operator": "=",
+                "type": "String",
+                "value": "other"
+              }
+            ],
+            "limit": 0,
+            "metrics": [
+              {
+                "aggregation": "avg",
+                "alias": "Packets",
+                "field": "packets"
+              }
+            ],
+            "mode": "trend",
+            "orderBy": [],
+            "table": "$protocol_version",
+            "timeField": "metricDateTime",
+            "timeFieldType": "DateTime"
+          },
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          },
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "database": "fastnetmon",
+              "fields": [],
+              "filters": [],
+              "limit": 100,
+              "metrics": [
+                {
+                  "aggregation": "avg",
+                  "field": "packets"
+                }
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "table": "total_metrics",
+              "timeField": "metricDateTime",
+              "timeFieldType": "DateTime"
+            }
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time,  avg(packets) Packets FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( direction = 'other' ) GROUP BY time ORDER BY time ASC",
+          "refId": "A",
+          "selectedFormat": 0
+        }
+      ],
+      "title": "Other traffic, packets/s",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "IPv4",
+          "value": "total_metrics"
+        },
+        "description": "Version of IP protocol",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Protocol Version",
+        "multi": false,
+        "name": "protocol_version",
+        "options": [
+          {
+            "selected": true,
+            "text": "IPv4",
+            "value": "total_metrics"
+          },
+          {
+            "selected": false,
+            "text": "IPv6",
+            "value": "total_metrics_ipv6"
+          }
+        ],
+        "query": "IPv4 : total_metrics, IPv6 : total_metrics_ipv6",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Total Traffic Clickhouse official",
+  "uid": "c46e04f2-bd32-4968-9e09-ee0e0a0fa83f",
+  "version": 17,
+  "weekStart": ""
+}
