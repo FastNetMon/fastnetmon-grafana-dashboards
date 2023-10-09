@@ -36,7 +36,7 @@
         "builtIn": 1,
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+          "uid": "fastnetmonclickhouseofficialdatasourceuid"
         },
         "enable": true,
         "hide": true,
@@ -62,7 +62,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "",
       "fieldConfig": {
@@ -185,7 +185,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
@@ -219,7 +219,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "",
       "fieldConfig": {
@@ -341,7 +341,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
@@ -375,7 +375,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "",
       "fieldConfig": {
@@ -497,7 +497,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
@@ -531,7 +531,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "",
       "fieldConfig": {
@@ -653,7 +653,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
@@ -687,7 +687,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "Traffic where source and destination both belong to your list of networks",
       "fieldConfig": {
@@ -809,7 +809,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
@@ -843,7 +843,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "Traffic where source and destination both belong to your list of networks",
       "fieldConfig": {
@@ -965,7 +965,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
@@ -999,7 +999,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "Traffic where both source and destination are not part of our list of networks",
       "fieldConfig": {
@@ -1121,7 +1121,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
@@ -1155,7 +1155,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+        "uid": "fastnetmonclickhouseofficialdatasourceuid"
       },
       "description": "Traffic where both source and destination are not part of our list of networks",
       "fieldConfig": {
@@ -1277,7 +1277,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "${DS_CLICKHOUSE_OFFICIAL}"
+            "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
           "format": 0,
           "meta": {
