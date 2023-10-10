@@ -49,6 +49,64 @@
           "type": "dashboard"
         },
         "type": "dashboard"
+      },
+      {
+        "datasource": {
+          "type": "grafana-clickhouse-datasource",
+          "uid": "fastnetmonclickhouseofficialdatasourceuid"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "red",
+        "mappings": {
+          "text": {
+            "source": "field",
+            "value": "text"
+          },
+          "time": {
+            "source": "field",
+            "value": "eventDateTime"
+          },
+          "title": {
+            "source": "field",
+            "value": "title"
+          }
+        },
+        "name": "Attacks",
+        "target": {
+          "builderOptions": {
+            "database": "fastnetmon",
+            "fields": [
+              "title",
+              "text",
+              "eventDateTime"
+            ],
+            "filters": [
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "eventDateTime",
+                "operator": "WITH IN DASHBOARD TIME RANGE",
+                "restrictToFields": [
+                  {
+                    "label": "eventDateTime",
+                    "name": "eventDateTime",
+                    "picklistValues": [],
+                    "type": "DateTime"
+                  }
+                ],
+                "type": "datetime"
+              }
+            ],
+            "limit": 100,
+            "mode": "list",
+            "orderBy": [],
+            "table": "attack_events"
+          },
+          "queryType": "builder",
+          "rawSql": "SELECT \"title\", \"text\", \"eventDateTime\" FROM \"fastnetmon\".\"attack_events\" WHERE   ( eventDateTime  >= $__fromTime AND eventDateTime <= $__toTime ) LIMIT 100",
+          "refId": "Anno"
+        }
       }
     ]
   },
@@ -1352,13 +1410,13 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Total Traffic Clickhouse official",
   "uid": "c46e04f2-bd32-4968-9e09-ee0e0a0fa83f",
-  "version": 20,
+  "version": 22,
   "weekStart": ""
 }
