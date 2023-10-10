@@ -1309,7 +1309,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "",
+  "refresh": "5s",
   "schemaVersion": 38,
   "style": "dark",
   "tags": [],
@@ -1317,9 +1317,9 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "IPv4",
-          "value": "total_metrics"
+          "selected": true,
+          "text": "IPv6",
+          "value": "total_metrics_ipv6"
         },
         "description": "Version of IP protocol",
         "hide": 0,
@@ -1329,17 +1329,22 @@
         "name": "protocol_version",
         "options": [
           {
-            "selected": true,
-            "text": "IPv4",
+            "selected": false,
+            "text": "Total",
             "value": "total_metrics"
           },
           {
             "selected": false,
+            "text": "IPv4",
+            "value": "total_metrics_ipv4"
+          },
+          {
+            "selected": true,
             "text": "IPv6",
             "value": "total_metrics_ipv6"
           }
         ],
-        "query": "IPv4 : total_metrics, IPv6 : total_metrics_ipv6",
+        "query": "Total : total_metrics, IPv4 : total_metrics_ipv4, IPv6 : total_metrics_ipv6",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
@@ -1354,6 +1359,6 @@
   "timezone": "",
   "title": "Total Traffic Clickhouse official",
   "uid": "c46e04f2-bd32-4968-9e09-ee0e0a0fa83f",
-  "version": 17,
+  "version": 20,
   "weekStart": ""
 }
