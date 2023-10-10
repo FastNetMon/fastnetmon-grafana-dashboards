@@ -1329,7 +1329,7 @@
         "name": "protocol_version",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "Total",
             "value": "total_metrics"
           },
@@ -1339,7 +1339,7 @@
             "value": "total_metrics_ipv4"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "IPv6",
             "value": "total_metrics_ipv6"
           }
