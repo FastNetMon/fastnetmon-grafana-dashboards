@@ -1,4 +1,35 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_CLICKHOUSE_OFFICIAL",
+      "label": "Clickhouse official",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "grafana-clickhouse-datasource",
+      "pluginName": "ClickHouse"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.1.4"
+    },
+    {
+      "type": "datasource",
+      "id": "grafana-clickhouse-datasource",
+      "name": "ClickHouse",
+      "version": "3.3.0"
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -82,7 +113,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 31,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -192,9 +223,7 @@
                 "key": "network",
                 "operator": "=",
                 "type": "String",
-                "value": [
-                  "$network"
-                ]
+                "value": "$network"
               }
             ],
             "groupBy": [
@@ -223,23 +252,51 @@
             "builderOptions": {
               "database": "fastnetmon",
               "fields": [],
-              "filters": [],
-              "limit": 100,
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "limit": 0,
               "metrics": [
                 {
                   "aggregation": "avg",
-                  "field": "packets"
+                  "alias": "Bandwidth",
+                  "field": "bits_incoming"
                 }
               ],
               "mode": "trend",
               "orderBy": [],
-              "table": "total_metrics",
+              "table": "$protocol_version",
               "timeField": "metricDateTime",
               "timeFieldType": "DateTime"
             }
           },
-          "queryType": "builder",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(bits_incoming) Bandwidth FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( network IN ($network ) ) GROUP BY network, time ORDER BY time ASC",
+          "queryType": "sql",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(bits_incoming) Bandwidth FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( network = '$network' ) GROUP BY network, time ORDER BY time ASC",
           "refId": "A",
           "selectedFormat": 0
         }
@@ -330,40 +387,38 @@
         {
           "builderOptions": {
             "database": "fastnetmon",
-            "fields": [],
+            "fields": [
+              "network"
+            ],
             "filters": [
               {
-                "condition": "AND",
-                "filterType": "custom",
-                "key": "metricDateTime",
+                "key": "metricdatetime",
                 "operator": "WITH IN DASHBOARD TIME RANGE",
-                "restrictToFields": [
-                  {
-                    "label": "metricDateTime",
-                    "name": "metricDateTime",
-                    "picklistValues": [],
-                    "type": "DateTime"
-                  }
-                ],
                 "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "key": "network",
+                "operator": "=",
+                "type": "string",
+                "value": "'$network'"
               }
             ],
             "groupBy": [
               "network"
             ],
-            "limit": 0,
+            "limit": 100,
             "metrics": [
               {
                 "aggregation": "avg",
-                "alias": "Bandwidth",
+                "alias": "bandwidth",
                 "field": "bits_outgoing"
               }
             ],
             "mode": "trend",
-            "orderBy": [],
             "table": "$protocol_version",
-            "timeField": "metricDateTime",
-            "timeFieldType": "DateTime"
+            "timeField": "metricdatetime",
+            "timeFieldType": "datetime"
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
@@ -373,24 +428,42 @@
           "meta": {
             "builderOptions": {
               "database": "fastnetmon",
-              "fields": [],
-              "filters": [],
+              "fields": [
+                "network"
+              ],
+              "filters": [
+                {
+                  "key": "metricdatetime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "string",
+                  "value": "'$network'"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
               "limit": 100,
               "metrics": [
                 {
                   "aggregation": "avg",
-                  "field": "packets"
+                  "alias": "bandwidth",
+                  "field": "bits_outgoing"
                 }
               ],
               "mode": "trend",
-              "orderBy": [],
-              "table": "total_metrics",
-              "timeField": "metricDateTime",
-              "timeFieldType": "DateTime"
+              "table": "$protocol_version",
+              "timeField": "metricdatetime",
+              "timeFieldType": "datetime"
             }
           },
-          "queryType": "builder",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(bits_outgoing) Bandwidth FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) GROUP BY network, time ORDER BY time ASC",
+          "queryType": "sql",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(bits_outgoing) bandwidth FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( network = '$network' ) GROUP BY network, time ORDER BY time ASC",
           "refId": "A",
           "selectedFormat": 0
         }
@@ -497,16 +570,24 @@
                   }
                 ],
                 "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "network",
+                "operator": "=",
+                "type": "String",
+                "value": "$network"
               }
             ],
             "groupBy": [
               "network"
             ],
-            "limit": 0,
+            "limit": null,
             "metrics": [
               {
                 "aggregation": "avg",
-                "alias": "Rate",
+                "alias": "rate",
                 "field": "packets_incoming"
               }
             ],
@@ -525,23 +606,51 @@
             "builderOptions": {
               "database": "fastnetmon",
               "fields": [],
-              "filters": [],
-              "limit": 100,
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "limit": null,
               "metrics": [
                 {
                   "aggregation": "avg",
-                  "field": "packets"
+                  "alias": "rate",
+                  "field": "packets_incoming"
                 }
               ],
               "mode": "trend",
               "orderBy": [],
-              "table": "total_metrics",
+              "table": "$protocol_version",
               "timeField": "metricDateTime",
               "timeFieldType": "DateTime"
             }
           },
-          "queryType": "builder",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(packets_incoming) Rate FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) GROUP BY network, time ORDER BY time ASC",
+          "queryType": "sql",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(packets_incoming) rate FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( network = '$network' ) GROUP BY network, time ORDER BY time ASC",
           "refId": "A",
           "selectedFormat": 0
         }
@@ -648,6 +757,14 @@
                   }
                 ],
                 "type": "datetime"
+              },
+              {
+                "condition": "AND",
+                "filterType": "custom",
+                "key": "network",
+                "operator": "=",
+                "type": "String",
+                "value": "$network"
               }
             ],
             "groupBy": [
@@ -676,23 +793,51 @@
             "builderOptions": {
               "database": "fastnetmon",
               "fields": [],
-              "filters": [],
-              "limit": 100,
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "limit": 0,
               "metrics": [
                 {
                   "aggregation": "avg",
-                  "field": "packets"
+                  "alias": "Rate",
+                  "field": "packets_outgoing"
                 }
               ],
               "mode": "trend",
               "orderBy": [],
-              "table": "total_metrics",
+              "table": "$protocol_version",
               "timeField": "metricDateTime",
               "timeFieldType": "DateTime"
             }
           },
-          "queryType": "builder",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(packets_outgoing) Rate FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) GROUP BY network, time ORDER BY time ASC",
+          "queryType": "sql",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, network, avg(packets_outgoing) Rate FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( network = '$network' ) GROUP BY network, time ORDER BY time ASC",
           "refId": "A",
           "selectedFormat": 0
         }
@@ -742,18 +887,14 @@
         "type": "custom"
       },
       {
-        "current": {
-          "selected": true,
-          "text": "All",
-          "value": "$__all"
-        },
+        "current": {},
         "datasource": {
           "type": "grafana-clickhouse-datasource",
           "uid": "fastnetmonclickhouseofficialdatasourceuid"
         },
         "definition": "select distinct(network) from fastnetmon.$protocol_version ",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "Network",
         "multi": false,
         "name": "network",
@@ -774,7 +915,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Traffic for specific network Clickhouse official",
-  "uid": "87a8d3e0-48f2-49c8-a5b8-9d4bbf70b040",
+  "uid": "9fcbc9a7-076b-47bf-9f5f-80855751ad2e",
   "version": 1,
   "weekStart": ""
 }
