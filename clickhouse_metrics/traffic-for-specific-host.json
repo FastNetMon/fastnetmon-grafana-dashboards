@@ -882,8 +882,8 @@
       {
         "current": {
           "selected": false,
-          "text": "2a01:4b00:88b8:3a00:020c:29ff:fec8:20c5",
-          "value": "2a01:4b00:88b8:3a00:020c:29ff:fec8:20c5"
+          "text": "",
+          "value": ""
         },
         "description": "IPv4 or IPv6 address",
         "hide": 0,
@@ -892,11 +892,11 @@
         "options": [
           {
             "selected": true,
-            "text": "2a01:4b00:88b8:3a00:020c:29ff:fec8:20c5",
-            "value": "2a01:4b00:88b8:3a00:020c:29ff:fec8:20c5"
+            "text": "",
+            "value": ""
           }
         ],
-        "query": "2a01:4b00:88b8:3a00:020c:29ff:fec8:20c5",
+        "query": "",
         "skipUrlSync": false,
         "type": "textbox"
       }
