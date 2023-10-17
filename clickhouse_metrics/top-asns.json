@@ -280,7 +280,7 @@
             }
           },
           "queryType": "sql",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), avg(bits_incoming) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(bits_incoming) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, concat(dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), ' AS',toString(asn_number)), avg(bits_incoming) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(bits_incoming) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
           "refId": "A",
           "selectedFormat": 0
         }
@@ -451,7 +451,7 @@
             }
           },
           "queryType": "sql",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), avg(bits_outgoing) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(bits_outgoing) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, concat(dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), ' AS',toString(asn_number)), avg(bits_outgoing) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(bits_outgoing) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
           "refId": "A",
           "selectedFormat": 0
         }
@@ -622,7 +622,7 @@
             }
           },
           "queryType": "sql",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), avg(packets_incoming) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(packets_incoming) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, concat(dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), ' AS',toString(asn_number)), avg(packets_incoming) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(packets_incoming) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
           "refId": "A",
           "selectedFormat": 0
         }
@@ -793,7 +793,7 @@
             }
           },
           "queryType": "sql",
-          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), avg(packets_outgoing) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(packets_outgoing) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, concat(dictGetOrDefault('fastnetmon.asn_information', 'asn_name', asn_number, 'Unknown'), ' AS',toString(asn_number)), avg(packets_outgoing) as \" \" FROM \"fastnetmon\".\"$protocol_version\" WHERE asn_number in ( select asn_number from (\n\n  SELECT asn_number, sum(packets_outgoing) as length\n  FROM \"fastnetmon\".\"$protocol_version\"\n  WHERE $__timeFilter(metricDateTime) AND ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n  GROUP BY asn_number\n  ORDER BY length DESC\n  LIMIT 10\n)) and $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime )\n GROUP BY asn_number, time ORDER BY time ASC ",
           "refId": "A",
           "selectedFormat": 0
         }
