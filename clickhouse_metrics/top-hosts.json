@@ -812,7 +812,7 @@
         "current": {
           "selected": false,
           "text": "IPv4",
-          "value": "host_metrics"
+          "value": "host_metrics_ipv4_top"
         },
         "description": "Version of IP protocol",
         "hide": 0,
@@ -824,15 +824,15 @@
           {
             "selected": true,
             "text": "IPv4",
-            "value": "host_metrics"
+            "value": "host_metrics_ipv4_top"
           },
           {
             "selected": false,
             "text": "IPv6",
-            "value": "host_metrics_ipv6"
+            "value": "host_metrics_ipv6_top"
           }
         ],
-        "query": "IPv4 : host_metrics, IPv6 : host_metrics_ipv6",
+        "query": "IPv4 : host_metrics_ipv4_top, IPv6 : host_metrics_ipv6_top",
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
