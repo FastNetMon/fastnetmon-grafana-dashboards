@@ -151,7 +151,104 @@
           },
           "unit": "bits"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sourcePort"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "destinationPort"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sourceASN"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "inputInterface"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "outputInterface"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "string"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sampleRatio"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "destinationASN"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "length"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 35,
@@ -267,7 +364,7 @@
             }
           },
           "queryType": "sql",
-          "rawSql": "SELECT $__timeInterval(packetDateTime) as time,  packetDateTime, \nIPv6NumToString(srcIpv6) as srcIP, IPv6NumToString(dstIpv6) as dstIP, \nsourcePort, destinationPort, numberOfPackets as packets, length, srcAsn, dstAsn, transform(protocol, [17, 6, 1], ['udp', 'tcp', 'icmp'], 'unknown') as protocol,\n IPv4NumToString(agentIpAddress) as agent,inputInterface as input, outputInterface as output,\n sampleRatio, arrayMap(x -> transform(x, [1, 2, 4, 8, 16, 32, 64, 128, 256, 512], ['fin', 'syn', 'rst', 'psh', 'ack', 'urg', 'ecn', 'cwr', 'nonce', 'reserved'], 'unknown'),\n bitmaskToArray(flags)) as TcpFlags FROM \"fastnetmon\".\"traffic\" WHERE $__timeFilter(packetDateTime) AND   ( packetDateTime  >= $__fromTime AND packetDateTime <= $__toTime ) AND\n and (srcIpv6 = IPv6StringToNum('$host') OR dstIpv6 = IPv6StringToNum('$host')) ORDER BY time ASC LIMIT 1000",
+          "rawSql": "SELECT $__timeInterval(packetDateTime) as time,\nIPv6NumToString(srcIpv6) as sourceIP, IPv6NumToString(dstIpv6) as destinationIP, \nsourcePort, destinationPort, numberOfPackets as packets, length, srcAsn as sourceASN, dstAsn as destinationASN, transform(protocol, [17, 6, 1], ['udp', 'tcp', 'icmp'], 'unknown') as protocol,\n IPv4NumToString(agentIpAddress) as deviceIP,inputInterface as inputInterface, outputInterface as outputInterface,\n sampleRatio, arrayMap(x -> transform(x, [1, 2, 4, 8, 16, 32, 64, 128, 256, 512], ['fin', 'syn', 'rst', 'psh', 'ack', 'urg', 'ecn', 'cwr', 'nonce', 'reserved'], 'unknown'),\n bitmaskToArray(flags)) as TcpFlags FROM \"fastnetmon\".\"traffic\" WHERE $__timeFilter(packetDateTime) AND   ( packetDateTime  >= $__fromTime AND packetDateTime <= $__toTime ) AND\n and (srcIpv6 = IPv6StringToNum('$host') OR dstIpv6 = IPv6StringToNum('$host')) ORDER BY time ASC LIMIT 1000",
           "refId": "A",
           "selectedFormat": 1
         }
