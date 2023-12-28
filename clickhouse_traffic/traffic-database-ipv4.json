@@ -151,7 +151,140 @@
           },
           "unit": "bits"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sourcePort"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "destinationPort"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "packets"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "length"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "bytes"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sourceASN"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "destionationASN"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "inputInterface"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "outputInterface"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sampleRatio"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "packetDateTime"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 194
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 193
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 35,
@@ -170,7 +303,8 @@
           ],
           "show": false
         },
-        "showHeader": true
+        "showHeader": true,
+        "sortBy": []
       },
       "pluginVersion": "10.1.4",
       "targets": [
@@ -267,7 +401,7 @@
             }
           },
           "queryType": "sql",
-          "rawSql": "SELECT $__timeInterval(packetDateTime) as time,  packetDateTime, IPv4NumToString(srcIp) as srcIP, IPv4NumToString(dstIp) as dstIP,\nsourcePort, destinationPort, numberOfPackets as packets, length, srcAsn, dstAsn, transform(protocol, [17, 6, 1], ['udp', 'tcp', 'icmp'], 'unknown') as protocol,\n IPv4NumToString(agentIpAddress) as agent,inputInterface as input, outputInterface as output,\n sampleRatio, arrayMap(x -> transform(x, [1, 2, 4, 8, 16, 32, 64, 128, 256, 512], ['fin', 'syn', 'rst', 'psh', 'ack', 'urg', 'ecn', 'cwr', 'nonce', 'reserved'], 'unknown'),\n bitmaskToArray(flags)) as TcpFlags FROM \"fastnetmon\".\"traffic\" WHERE $__timeFilter(packetDateTime) AND   ( packetDateTime  >= $__fromTime AND packetDateTime <= $__toTime ) AND\n and (srcIp = IPv4StringToNum('$host') OR dstIp = IPv4StringToNum('$host')) ORDER BY time ASC LIMIT 1000",
+          "rawSql": "SELECT $__timeInterval(packetDateTime) as time,  packetDateTime, IPv4NumToString(srcIp) as sourceIP, IPv4NumToString(dstIp) as destinationIP,\nsourcePort, destinationPort, numberOfPackets as packets, length, srcAsn as sourceASN, dstAsn as destionationASN, transform(protocol, [17, 6, 1], ['udp', 'tcp', 'icmp'], 'unknown') as protocol,\n IPv4NumToString(agentIpAddress) as deviceIP,inputInterface as inputInterface, outputInterface as outputInterface,\n sampleRatio, arrayMap(x -> transform(x, [1, 2, 4, 8, 16, 32, 64, 128, 256, 512], ['fin', 'syn', 'rst', 'psh', 'ack', 'urg', 'ecn', 'cwr', 'nonce', 'reserved'], 'unknown'),\n bitmaskToArray(flags)) as TcpFlags FROM \"fastnetmon\".\"traffic\" WHERE $__timeFilter(packetDateTime) AND   ( packetDateTime  >= $__fromTime AND packetDateTime <= $__toTime ) AND\n and (srcIp = IPv4StringToNum('$host') OR dstIp = IPv4StringToNum('$host')) ORDER BY time ASC LIMIT 1000",
           "refId": "A",
           "selectedFormat": 1
         }
