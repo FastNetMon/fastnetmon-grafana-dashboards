@@ -15,13 +15,13 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.1.4"
+      "version": "10.2.3"
     },
     {
       "type": "datasource",
       "id": "grafana-clickhouse-datasource",
       "name": "ClickHouse",
-      "version": "3.3.0"
+      "version": "4.0.0-beta"
     },
     {
       "type": "panel",
@@ -269,64 +269,37 @@
         },
         "showHeader": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
-          "builderOptions": {
-            "database": "fastnetmon",
-            "fields": [],
-            "filters": [
-              {
-                "condition": "AND",
-                "filterType": "custom",
-                "key": "packetDateTime",
-                "operator": "WITH IN DASHBOARD TIME RANGE",
-                "restrictToFields": [
-                  {
-                    "label": "packetDateTime",
-                    "name": "packetDateTime",
-                    "picklistValues": [],
-                    "type": "DateTime"
-                  }
-                ],
-                "type": "datetime"
-              },
-              {
-                "condition": "AND",
-                "filterType": "custom",
-                "key": "srcIp",
-                "operator": "IS NOT NULL",
-                "type": "UInt32"
-              }
-            ],
-            "groupBy": [],
-            "limit": 1000,
-            "metrics": [
-              {
-                "aggregation": "avg",
-                "alias": "",
-                "field": "sampleRatio"
-              }
-            ],
-            "mode": "trend",
-            "orderBy": [],
-            "table": "traffic",
-            "timeField": "packetDateTime",
-            "timeFieldType": "DateTime"
-          },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
             "uid": "fastnetmonclickhouseofficialdatasourceuid"
           },
+          "editorType": "sql",
           "format": 1,
           "meta": {
             "builderOptions": {
+              "aggregates": [
+                {
+                  "aggregateType": "avg",
+                  "alias": "",
+                  "column": "sampleRatio"
+                }
+              ],
+              "columns": [
+                {
+                  "hint": "time",
+                  "name": "packetDateTime",
+                  "type": "DateTime"
+                }
+              ],
               "database": "fastnetmon",
-              "fields": [],
               "filters": [
                 {
                   "condition": "AND",
                   "filterType": "custom",
+                  "hint": "time",
                   "key": "packetDateTime",
                   "operator": "WITH IN DASHBOARD TIME RANGE",
                   "restrictToFields": [
@@ -349,24 +322,16 @@
               ],
               "groupBy": [],
               "limit": 1000,
-              "metrics": [
-                {
-                  "aggregation": "avg",
-                  "alias": "",
-                  "field": "sampleRatio"
-                }
-              ],
               "mode": "trend",
               "orderBy": [],
-              "table": "traffic",
-              "timeField": "packetDateTime",
-              "timeFieldType": "DateTime"
+              "queryType": "timeseries",
+              "table": "traffic"
             }
           },
-          "queryType": "sql",
-          "rawSql": "SELECT $__timeInterval(packetDateTime) as time,\nIPv6NumToString(srcIpv6) as sourceIP, IPv6NumToString(dstIpv6) as destinationIP, \nsourcePort, destinationPort, numberOfPackets as packets, length, srcAsn as sourceASN, dstAsn as destinationASN, transform(protocol, [17, 6, 1], ['udp', 'tcp', 'icmp'], 'unknown') as protocol,\n IPv4NumToString(agentIpAddress) as deviceIP,inputInterface as inputInterface, outputInterface as outputInterface,\n sampleRatio, arrayMap(x -> transform(x, [1, 2, 4, 8, 16, 32, 64, 128, 256, 512], ['fin', 'syn', 'rst', 'psh', 'ack', 'urg', 'ecn', 'cwr', 'nonce', 'reserved'], 'unknown'),\n bitmaskToArray(flags)) as TcpFlags FROM \"fastnetmon\".\"traffic\" WHERE $__timeFilter(packetDateTime) AND   ( packetDateTime  >= $__fromTime AND packetDateTime <= $__toTime ) AND\n and (srcIpv6 = IPv6StringToNum('$host') OR dstIpv6 = IPv6StringToNum('$host')) ORDER BY time ASC LIMIT 1000",
-          "refId": "A",
-          "selectedFormat": 1
+          "pluginVersion": "4.0.0-beta",
+          "queryType": "table",
+          "rawSql": "SELECT $__timeInterval(packetDateTime) as time,\nIPv6NumToString(srcIpv6) as sourceIP, IPv6NumToString(dstIpv6) as destinationIP, \nsourcePort, destinationPort, numberOfPackets as packets, length, srcAsn as sourceASN, dstAsn as destinationASN, transform(protocol, [17, 6, 1], ['udp', 'tcp', 'icmp'], 'unknown') as protocol,\n IPv4NumToString(agentIpAddress) as deviceIP,inputInterface as inputInterface, outputInterface as outputInterface,\n sampleRatio, arrayMap(x -> transform(x, [1, 2, 4, 8, 16, 32, 64, 128, 256, 512], ['fin', 'syn', 'rst', 'psh', 'ack', 'urg', 'ecn', 'cwr', 'nonce', 'reserved'], 'unknown'),\n bitmaskToArray(flags)) as TcpFlags FROM \"fastnetmon\".\"traffic\" WHERE $__timeFilter(packetDateTime) AND   ( packetDateTime  >= $__fromTime AND packetDateTime <= $__toTime ) AND (srcIpv6 = IPv6StringToNum('$host') OR dstIpv6 = IPv6StringToNum('$host')) ORDER BY time ASC LIMIT 1000",
+          "refId": "A"
         }
       ],
       "title": "Raw traffic",
@@ -374,8 +339,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
