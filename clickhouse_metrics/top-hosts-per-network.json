@@ -36,7 +36,7 @@
         "builtIn": 1,
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "fastnetmonclickhouseofficialdatasourceuid"
+          "uid": "fnm-clickhouse-datasource-uid"
         },
         "enable": true,
         "hide": true,
@@ -53,7 +53,7 @@
       {
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "fastnetmonclickhouseofficialdatasourceuid"
+          "uid": "fnm-clickhouse-datasource-uid"
         },
         "enable": true,
         "hide": true,
@@ -120,7 +120,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "fastnetmonclickhouseofficialdatasourceuid"
+        "uid": "fnm-clickhouse-datasource-uid"
       },
       "description": "",
       "fieldConfig": {
@@ -238,7 +238,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "fastnetmonclickhouseofficialdatasourceuid"
+            "uid": "fnm-clickhouse-datasource-uid"
           },
           "format": 0,
           "meta": {
@@ -292,7 +292,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "fastnetmonclickhouseofficialdatasourceuid"
+        "uid": "fnm-clickhouse-datasource-uid"
       },
       "description": "",
       "fieldConfig": {
@@ -410,7 +410,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "fastnetmonclickhouseofficialdatasourceuid"
+            "uid": "fnm-clickhouse-datasource-uid"
           },
           "format": 0,
           "meta": {
@@ -464,7 +464,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "fastnetmonclickhouseofficialdatasourceuid"
+        "uid": "fnm-clickhouse-datasource-uid"
       },
       "description": "",
       "fieldConfig": {
@@ -582,7 +582,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "fastnetmonclickhouseofficialdatasourceuid"
+            "uid": "fnm-clickhouse-datasource-uid"
           },
           "format": 0,
           "meta": {
@@ -636,7 +636,7 @@
     {
       "datasource": {
         "type": "grafana-clickhouse-datasource",
-        "uid": "fastnetmonclickhouseofficialdatasourceuid"
+        "uid": "fnm-clickhouse-datasource-uid"
       },
       "description": "",
       "fieldConfig": {
@@ -754,7 +754,7 @@
           },
           "datasource": {
             "type": "grafana-clickhouse-datasource",
-            "uid": "fastnetmonclickhouseofficialdatasourceuid"
+            "uid": "fnm-clickhouse-datasource-uid"
           },
           "format": 0,
           "meta": {
@@ -815,7 +815,7 @@
         "current": {},
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "fastnetmonclickhouseofficialdatasourceuid"
+          "uid": "fnm-clickhouse-datasource-uid"
         },
         "definition": "select distinct(network) from fastnetmon.network_metrics union all select distinct(network) from fastnetmon.network_metrics_ipv6 union all select distinct(network) from fastnetmon.network_24_metrics_ipv4",
         "hide": 0,
@@ -835,7 +835,7 @@
         "current": {},
         "datasource": {
           "type": "grafana-clickhouse-datasource",
-          "uid": "fastnetmonclickhouseofficialdatasourceuid"
+          "uid": "fnm-clickhouse-datasource-uid"
         },
         "definition": "select if(position(':','$network') = 0, 'host_metrics', 'host_metrics_ipv6')",
         "description": "",
