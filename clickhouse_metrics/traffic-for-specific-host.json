@@ -1,35 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_CLICKHOUSE_OFFICIAL",
-      "label": "Clickhouse official",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "grafana-clickhouse-datasource",
-      "pluginName": "ClickHouse"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "10.1.4"
-    },
-    {
-      "type": "datasource",
-      "id": "grafana-clickhouse-datasource",
-      "name": "ClickHouse",
-      "version": "3.3.0"
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -113,9 +82,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 0,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "datasource": {
@@ -129,11 +97,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -150,6 +120,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -165,7 +136,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -178,12 +149,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 20,
-        "w": 11,
+        "h": 12,
+        "w": 12,
         "x": 0,
         "y": 0
       },
-      "id": 4,
+      "id": 10,
       "options": {
         "legend": {
           "calcs": [],
@@ -192,10 +163,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.3.3",
       "targets": [
         {
           "builderOptions": {
@@ -316,11 +289,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -337,6 +312,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -352,7 +328,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -365,12 +341,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 20,
-        "w": 13,
-        "x": 11,
+        "h": 12,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
-      "id": 5,
+      "id": 11,
       "options": {
         "legend": {
           "calcs": [],
@@ -379,10 +355,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.3.3",
       "targets": [
         {
           "builderOptions": {
@@ -483,11 +461,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -504,6 +484,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -519,7 +500,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -532,12 +513,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 20,
-        "w": 11,
+        "h": 13,
+        "w": 12,
         "x": 0,
-        "y": 20
+        "y": 12
       },
-      "id": 6,
+      "id": 12,
       "options": {
         "legend": {
           "calcs": [],
@@ -546,10 +527,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.3.3",
       "targets": [
         {
           "builderOptions": {
@@ -668,11 +651,13 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 0,
             "gradientMode": "none",
@@ -689,6 +674,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -704,7 +690,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -717,12 +703,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 20,
-        "w": 13,
-        "x": 11,
-        "y": 20
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 12
       },
-      "id": 7,
+      "id": 13,
       "options": {
         "legend": {
           "calcs": [],
@@ -731,10 +717,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.3.3",
       "targets": [
         {
           "builderOptions": {
@@ -842,51 +830,967 @@
       ],
       "title": "Outgoing per host packet rate",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "fnm-clickhouse-datasource-uid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "fnm-clickhouse-datasource-uid"
+          },
+          "editorType": "sql",
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [
+                {
+                  "aggregateType": "avg",
+                  "alias": "rate",
+                  "column": "packets_incoming"
+                }
+              ],
+              "columns": [
+                {
+                  "hint": "time",
+                  "name": "metricDateTime",
+                  "type": "DateTime"
+                }
+              ],
+              "database": "fastnetmon",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "queryType": "timeseries",
+              "table": "$protocol_version"
+            }
+          },
+          "pluginVersion": "4.13.0",
+          "queryType": "timeseries",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, host, avg(flows_incoming) flows FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( host = '$host' ) GROUP BY host, time ORDER BY time ASC",
+          "refId": "A"
+        }
+      ],
+      "title": "Incoming per host flows",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "fnm-clickhouse-datasource-uid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 13,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "fnm-clickhouse-datasource-uid"
+          },
+          "editorType": "sql",
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [
+                {
+                  "aggregateType": "avg",
+                  "alias": "Rate",
+                  "column": "packets_outgoing"
+                }
+              ],
+              "columns": [
+                {
+                  "hint": "time",
+                  "name": "metricDateTime",
+                  "type": "DateTime"
+                }
+              ],
+              "database": "fastnetmon",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "limit": 0,
+              "mode": "trend",
+              "orderBy": [],
+              "queryType": "timeseries",
+              "table": "$protocol_version"
+            }
+          },
+          "pluginVersion": "4.13.0",
+          "queryType": "timeseries",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, host, avg(flows_outgoing) flows FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( host = '$host' ) GROUP BY host, time ORDER BY time ASC",
+          "refId": "A"
+        }
+      ],
+      "title": "Outgoing per host flows",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "fnm-clickhouse-datasource-uid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 0,
+        "y": 38
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "first"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "fnm-clickhouse-datasource-uid"
+          },
+          "editorType": "sql",
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [
+                {
+                  "aggregateType": "avg",
+                  "alias": "Bandwidth",
+                  "column": "bits_incoming"
+                }
+              ],
+              "columns": [
+                {
+                  "hint": "time",
+                  "name": "metricDateTime",
+                  "type": "DateTime"
+                }
+              ],
+              "database": "fastnetmon",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "limit": 0,
+              "mode": "trend",
+              "orderBy": [],
+              "queryType": "timeseries",
+              "table": "$protocol_version"
+            }
+          },
+          "pluginVersion": "4.13.0",
+          "queryType": "timeseries",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, host, avg(tcp_syn_bits_incoming) tcp_syn, avg(tcp_bits_incoming) as tcp, avg(udp_bits_incoming) as udp, avg(icmp_bits_incoming) as icmp, avg(fragmented_bits_incoming) as fragmented FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( host = '$host' ) GROUP BY host, time ORDER BY time ASC",
+          "refId": "tcp_syn"
+        }
+      ],
+      "title": "Incoming per host traffic by type",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "fnm-clickhouse-datasource-uid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bits"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 38
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "fnm-clickhouse-datasource-uid"
+          },
+          "editorType": "sql",
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [
+                {
+                  "aggregateType": "avg",
+                  "alias": "bandwidth",
+                  "column": "bits_outgoing"
+                }
+              ],
+              "columns": [
+                {
+                  "name": "network"
+                },
+                {
+                  "hint": "time",
+                  "name": "metricdatetime",
+                  "type": "datetime"
+                }
+              ],
+              "database": "fastnetmon",
+              "filters": [
+                {
+                  "hint": "time",
+                  "key": "metricdatetime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "string",
+                  "value": "'$network'"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "limit": 100,
+              "mode": "trend",
+              "queryType": "timeseries",
+              "table": "$protocol_version"
+            }
+          },
+          "pluginVersion": "4.13.0",
+          "queryType": "timeseries",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, host, avg(tcp_syn_bits_outgoing) tcp_syn, avg(tcp_bits_outgoing) as tcp , avg(udp_bits_outgoing) as udp, avg(icmp_bits_outgoing) as icmp, avg(fragmented_bits_outgoing) as fragmented FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( host = '$host' ) GROUP BY host, time ORDER BY time ASC",
+          "refId": "A"
+        }
+      ],
+      "title": "Outgoing per host traffic by type",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "fnm-clickhouse-datasource-uid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 12,
+        "x": 0,
+        "y": 52
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "fnm-clickhouse-datasource-uid"
+          },
+          "editorType": "sql",
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [
+                {
+                  "aggregateType": "avg",
+                  "alias": "rate",
+                  "column": "packets_incoming"
+                }
+              ],
+              "columns": [
+                {
+                  "hint": "time",
+                  "name": "metricDateTime",
+                  "type": "DateTime"
+                }
+              ],
+              "database": "fastnetmon",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "mode": "trend",
+              "orderBy": [],
+              "queryType": "timeseries",
+              "table": "$protocol_version"
+            }
+          },
+          "pluginVersion": "4.13.0",
+          "queryType": "timeseries",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, host, avg(tcp_syn_packets_incoming) tcp_syn, avg(tcp_packets_incoming) as tcp, avg(udp_packets_incoming) as udp, avg(icmp_packets_incoming) as icmp, avg(fragmented_packets_incoming) as fragmented FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( host = '$host' ) GROUP BY host, time ORDER BY time ASC",
+          "refId": "A"
+        }
+      ],
+      "title": "Incoming per host packet rate by type",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-clickhouse-datasource",
+        "uid": "fnm-clickhouse-datasource-uid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 15,
+        "w": 12,
+        "x": 12,
+        "y": 52
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-clickhouse-datasource",
+            "uid": "fnm-clickhouse-datasource-uid"
+          },
+          "editorType": "sql",
+          "format": 0,
+          "meta": {
+            "builderOptions": {
+              "aggregates": [
+                {
+                  "aggregateType": "avg",
+                  "alias": "Rate",
+                  "column": "packets_outgoing"
+                }
+              ],
+              "columns": [
+                {
+                  "hint": "time",
+                  "name": "metricDateTime",
+                  "type": "DateTime"
+                }
+              ],
+              "database": "fastnetmon",
+              "filters": [
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "hint": "time",
+                  "key": "metricDateTime",
+                  "operator": "WITH IN DASHBOARD TIME RANGE",
+                  "restrictToFields": [
+                    {
+                      "label": "metricDateTime",
+                      "name": "metricDateTime",
+                      "picklistValues": [],
+                      "type": "DateTime"
+                    }
+                  ],
+                  "type": "datetime"
+                },
+                {
+                  "condition": "AND",
+                  "filterType": "custom",
+                  "key": "network",
+                  "operator": "=",
+                  "type": "String",
+                  "value": "$network"
+                }
+              ],
+              "groupBy": [
+                "network"
+              ],
+              "limit": 0,
+              "mode": "trend",
+              "orderBy": [],
+              "queryType": "timeseries",
+              "table": "$protocol_version"
+            }
+          },
+          "pluginVersion": "4.13.0",
+          "queryType": "timeseries",
+          "rawSql": "SELECT $__timeInterval(metricDateTime) as time, host, avg(tcp_syn_packets_outgoing) tcp_syn, avg(tcp_packets_outgoing) as tcp, avg(udp_packets_outgoing) as udp, avg(icmp_packets_outgoing) as icmp, avg(fragmented_packets_outgoing) as fragmented FROM \"fastnetmon\".\"$protocol_version\" WHERE $__timeFilter(metricDateTime) AND   ( metricDateTime  >= $__fromTime AND metricDateTime <= $__toTime ) AND ( host = '$host' ) GROUP BY host, time ORDER BY time ASC",
+          "refId": "A"
+        }
+      ],
+      "title": "Outgoing per host packet rate by type",
+      "type": "timeseries"
     }
   ],
+  "preload": false,
   "refresh": "5s",
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 42,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "selected": true,
-          "text": "IPv6",
-          "value": "host_metrics_ipv6"
+          "text": "host_metrics",
+          "value": "host_metrics"
         },
         "description": "Version of IP protocol",
-        "hide": 0,
         "includeAll": false,
         "label": "Protocol Version",
-        "multi": false,
         "name": "protocol_version",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "IPv4",
             "value": "host_metrics"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "IPv6",
             "value": "host_metrics_ipv6"
           }
         ],
         "query": "IPv4 : host_metrics, IPv6 : host_metrics_ipv6",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": false,
           "text": "",
           "value": ""
         },
         "description": "IPv4 or IPv6 address",
-        "hide": 0,
         "label": "IP address",
         "name": "host",
         "options": [
@@ -897,7 +1801,6 @@
           }
         ],
         "query": "",
-        "skipUrlSync": false,
         "type": "textbox"
       }
     ]
@@ -909,7 +1812,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "Traffic for specific host",
-  "uid": "9eac17d7-3590-4c63-af88-d650e38f93cf",
-  "version": 1,
-  "weekStart": ""
+  "uid": "dce2c267-d10c-429c-b798-97fe95ae9581",
+  "version": 15
 }
