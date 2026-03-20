@@ -735,7 +735,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Per hostgroup traffic Clickhouse",
+  "title": "Per hostgroup traffic",
   "uid": "f9491105-b3a8-42f3-8d6f-c68fb24a57e7",
   "version": 1,
   "weekStart": ""

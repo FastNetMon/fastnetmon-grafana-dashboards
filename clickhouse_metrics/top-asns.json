@@ -845,7 +845,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Per ASN traffic Clickhouse",
+  "title": "Per ASN traffic",
   "uid": "1b72faf2-7281-4b57-9364-fec2ab04b2ef",
   "version": 1,
   "weekStart": ""
